@@ -27,6 +27,10 @@ public class RPSGameManager : MonoBehaviour
     public PaperBot paperBot;
     public ScissorsBot scissorsBot;
 
+    [Header("Cursor Settings")]
+    public bool keepCursorVisible = true;
+    public CursorLockMode cursorLockMode = CursorLockMode.None;
+
     // Store the last few bot choices to avoid patterns
     private Choice[] lastBotChoices = new Choice[3];
     private int choiceIndex = 0;
@@ -38,7 +42,24 @@ public class RPSGameManager : MonoBehaviour
 
     void Start()
     {
+        // Configure cursor to always be visible
+        ConfigureCursor();
         ResetRound();
+    }
+
+    void OnEnable()
+    {
+        // Ensure cursor settings are applied when script is enabled
+        ConfigureCursor();
+    }
+
+    void ConfigureCursor()
+    {
+        // Set cursor to always be visible and unlocked
+        Cursor.visible = keepCursorVisible;
+        Cursor.lockState = cursorLockMode;
+
+        Debug.Log("Cursor configured - Visible: " + Cursor.visible + ", Lock State: " + Cursor.lockState);
     }
 
     public void SetPlayerChoice(int choiceIndex)
@@ -214,6 +235,8 @@ public class RPSGameManager : MonoBehaviour
 
     void GoToScene(string sceneName)
     {
+        // Ensure cursor settings persist when loading new scene
+        ConfigureCursor();
         SceneManager.LoadScene(sceneName);
     }
 
@@ -226,14 +249,17 @@ public class RPSGameManager : MonoBehaviour
         botChoice = Choice.None;
         hasShot = false;
 
-        playerChoiceText.text = "Player: ?";
-        botChoiceText.text = "Bot: ?";
+        playerChoiceText.text = "Player: ";
+        botChoiceText.text = "Bot: ";
         resultText.text = "Choose and Press SHOOT";
         scoreText.text = "Score - Player: " + playerWins + " | Bot: " + botWins;
 
         rockBot.Hide();
         paperBot.Hide();
         scissorsBot.Hide();
+
+        // Reapply cursor settings when round resets
+        ConfigureCursor();
     }
 
     // Optional: Method to reset the entire game
@@ -244,5 +270,25 @@ public class RPSGameManager : MonoBehaviour
         choiceIndex = 0;
         System.Array.Clear(lastBotChoices, 0, lastBotChoices.Length);
         ResetRound();
+    }
+
+    // Called when the application loses focus
+    void OnApplicationFocus(bool hasFocus)
+    {
+        if (hasFocus)
+        {
+            // Reapply cursor settings when application regains focus
+            ConfigureCursor();
+        }
+    }
+
+    // Called when the application pauses (mobile) or loses focus
+    void OnApplicationPause(bool pauseStatus)
+    {
+        if (!pauseStatus)
+        {
+            // Reapply cursor settings when application resumes
+            ConfigureCursor();
+        }
     }
 }
