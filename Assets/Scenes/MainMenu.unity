@@ -427,9 +427,9 @@ RectTransform:
   - {fileID: 1563619624}
   m_Father: {fileID: 465452268}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -491, y: -396}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -491, y: 144}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &205118007
@@ -834,9 +834,9 @@ RectTransform:
   - {fileID: 1735868655}
   m_Father: {fileID: 465452268}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 41, y: -392}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 41, y: 148}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &369855850
@@ -1633,7 +1633,7 @@ RectTransform:
   m_Father: {fileID: 454710783}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 41, y: -392}
   m_SizeDelta: {x: 160, y: -1050}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2137,9 +2137,9 @@ RectTransform:
   - {fileID: 2132184211}
   m_Father: {fileID: 465452268}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 562, y: -387}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 562, y: 153}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &898407136
@@ -2295,22 +2295,22 @@ MonoBehaviour:
       m_Calls: []
   m_text: '
 
-    
+
 
     Game Rules:
 
     Rock beats Scissors
 
-    
 
-    Paper
-    beats Rock
 
-    
+    Paper beats Rock
 
-    Scissors beats Paper
 
-    
+
+    Scissors
+    beats Paper
+
+
 
     Same choice = Drawws'
   m_isRightToLeft: 0
@@ -3114,22 +3114,24 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Controls:
 
-    Choose your move - Click on Rock, Paper, or Scissors button
+    Esc - Pause
 
-    
+    Choose your move - Click on Rock, Paper,
+    or Scissors button
 
-    Shoot!
-    - Click the SHOOT button to play your move
 
-    
 
-    Watch the result - See
-    if you win, lose, or draw
+    Shoot! - Click the SHOOT button to play your move
 
-    
 
-    Repeat - Keep playing until someone wins
-    3 rounds
+
+    Watch
+    the result - See if you win, lose, or draw
+
+
+
+    Repeat - Keep playing until
+    someone wins 3 rounds
 
 '
   m_isRightToLeft: 0
